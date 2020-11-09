@@ -1,47 +1,321 @@
 {
-    "4Seam_1" : "Pitch a 4-seam fastball! Since the count is 0-0 and it's late in the game, the run difference really matters. In this case you are losing, and since the batter hasn't chased and is high in the lineup you want to pitch a simple 4-seam fastball, at the knees, to avoid a large hit.",
-    "4Seam_2" : "Pitch a 4-seam fastball at the knees! Since the count is 0-0 and it's late in the game, the run difference really matters. In this case you are losing, and since the batter is lower in the lineup, you will be able to blow a fast pitch by him, which doesn't risk a wild pitch advancing a runner.",
-    "4Seam_3" : "Pitch a fastball, moderately outside low! Since the count is 0-0 and it's NOT late in the game, the run difference doesn't matter as much. In this case you are losing, and the batter didn't swing so he is disciplined; therefore a fastball is the best outcome, keeping it low to prevent a big hit.",
-    "4Seam_4" : "Pitch a fastball, but make it high! Since the count is 0-0 and it's NOT late in the game, the run difference doesn't matter as much. In this case you are losing, and the batter DID chase so he isn't disciplined; therefore a fastball is the best outcome, keeping it high to make him swing and miss.",
-    "4Seam_5" : "Pitch a fastball, moderately outside low! Since the count is 0-1 but the pitcher isn't as accurate, a 4-seam fastball ensures a strike.",
-    "4Seam_6" : "Pitch a 4-seam, which is faster! Since the pitcher still has to gain his control this pitch is your best bet. You're winning and it isn't late in the game, so this pitch, outside, will be harder to hit but still easy to field.",
-    "4Seam_7" : "Pitch a 4-seam, which is faster! Since the pitcher has thrown a couple of innings but his control is off this pitch is your best bet. You're winning and it isn't late in the game, so this pitch, outside, will be harder to hit but still easy to field.",
-    "4Seam_8" : "Pitch a 4-seam fastball at the knees. It's not late in the game but you are losing, so you want a strike out pitch to end the inning; since you're ahead in the count this pitch is best for its straight heat.",
-    "4Seam_9" : "Pitch a 4-seam fastball at the knees. The game is pretty close so the runners on base are very dangerous, and the pitcher isn't accurate so you don't want to risk a wild pitch; thus this is your safest bet.",
-    "4Seam_10" : "Pitch a 4-seam fastball. It's late in the game and the run difference is over 4. No matter what, if you're losing or winning, you just want to get the inning done with; 4-seam fastball brings straight heat.",
-    "4Seam_11" : "Pitch a 4-seam fastball. It's late in the game and the batter is high in the lineup and disciplined—so you just want straight heat with this pitch.",
-    "4Seam_12" : "Pitch a 4-seam fastball moderately outside. The pitcher isn't accurate so this should be your default pitch, and the batters are merely OK. They won't be able to hit fastballs as well.",
-    "4Seam_13" : "Pitch a 4-seam at the knees. The pitcher isn't accurate, so it doesn't really matter that the batters aren't as good. They're still disciplined so far so this fastball is your best pitch right now.",
-    "4Seam_14" : "Pitch a 4-seam fastball moderately outside. You're behind in the count and need a strike, and you really can't risk getting a ball, which is why the 4-seam fastball is the best pitch currently.",
-    "4Seam_15" : "Pitch a 4-seam fastball. There is a dangerous runner so you don't want to use a breaking ball, but this pitch is perfect because it's still fast and it has heat. This is why you should pitch the 4-seam, and maybe get ahead in the count; the batter is disciplined so he wouldn't swing at any other pitch.",
-    "4Seam_16" : "Pitch a 4-seam fastball. Since you're losing and the batter is high in the lineup and probably pretty good, you don't want to risk it. Use this fast, straightforward pitch. Pitch it OUTSIDE.",
-    "4Seam_17" : "Pitch a 4-seam fastball. Since you're losing and the batter is high in the lineup and probably pretty good, you don't want to risk it. Use this fast, straightforward pitch. Pitch it INSIDE.",
-    "4Seam_18" : "You don't have an option here. You are behind in the count and absolutely need a strike. Pitch a 4-seam fastball, at the knees, in order to save face.",
+    "4Seam_1" : [
+        {
+            "type" : "1",
+            "zoom" : "inside",
+            "position" : "low",
+            "description" : "Pitch a 4-seam fastball! Since the count is 0-0 and it's late in the game, the run difference really matters. In this case you are losing, and since the batter hasn't chased and is high in the lineup you want to pitch a simple 4-seam fastball, at the knees, to avoid a large hit."
+        }
+    ],
+    
+    "4Seam_2" : [
+        {
+            "type" : "1",
+            "zoom" : "inside",
+            "position" : "low",
+            "description" : "Pitch a 4-seam fastball at the knees! Since the count is 0-0 and it's late in the game, the run difference really matters. In this case you are losing, and since the batter is lower in the lineup, you will be able to blow a fast pitch by him, which doesn't risk a wild pitch advancing a runner."
+        }
+    ],
+    "4Seam_3" : [
+        {
+            "type" : "1",
+            "zoom" : "outside",
+            "position" : "low",
+            "description" : "Pitch a fastball, moderately outside low! Since the count is 0-0 and it's NOT late in the game, the run difference doesn't matter as much. In this case you are losing, and the batter didn't swing so he is disciplined; therefore a fastball is the best outcome, keeping it low to prevent a big hit."
+        }
+    ],
+    "4Seam_4" : [
+        {
+            "type" : "1",
+            "zoom" : "outside",
+            "position" : "high",
+            "description" : "Pitch a fastball, but make it high! Since the count is 0-0 and it's NOT late in the game, the run difference doesn't matter as much. In this case you are losing, and the batter DID chase so he isn't disciplined; therefore a fastball is the best outcome, keeping it high to make him swing and miss."
+        }
+    ],
+    "4Seam_5" : [
+        {
+            "type" : "1",
+            "zoom" : "outside",
+            "position" : "low",
+            "description" : "Pitch a fastball, moderately outside low! Since the count is 0-1 but the pitcher isn't as accurate, a 4-seam fastball ensures a strike."
+        }
+    ],
+    "4Seam_6" : [
+        {
+            "type" : "1",
+            "zoom" : "outside",
+            "position" : "high",
+            "description" : "Pitch a 4-seam, which is faster! Since the pitcher still has to gain his control this pitch is your best bet. You're winning and it isn't late in the game, so this pitch, outside, will be harder to hit but still easy to field."
+        }
+    ],
+    "4Seam_7" : [
+        {
+            "type" : "1",
+            "zoom" : "outside",
+            "position" : "high",
+            "description" : "Pitch a 4-seam, which is faster! Since the pitcher has thrown a couple of innings but his control is off this pitch is your best bet. You're winning and it isn't late in the game, so this pitch, outside, will be harder to hit but still easy to field."
+        }
+    ],
+    "4Seam_8" : [
+        {
+            "type" : "1",
+            "zoom" : "outside",
+            "position" : "low",
+            "description" : "Pitch a 4-seam fastball at the knees. It's not late in the game but you are losing, so you want a strike out pitch to end the inning; since you're ahead in the count this pitch is best for its straight heat."
+        }
+    ],
+    "4Seam_9" : [
+        {
+            "type" : "1",
+            "zoom" : "inside",
+            "position" : "low",
+            "description" : "Pitch a 4-seam fastball at the knees. The game is pretty close so the runners on base are very dangerous, and the pitcher isn't accurate so you don't want to risk a wild pitch; thus this is your safest bet."
+        }
+    ],
+    "4Seam_10" : [
+        {
+            "type" : "1",
+            "zoom" : "inside",
+            "position" : "low",
+            "description" : "Pitch a 4-seam fastball. It's late in the game and the run difference is over 4. No matter what, if you're losing or winning, you just want to get the inning done with; 4-seam fastball brings straight heat."
+        }
+    ],
+    "4Seam_11" : [
+        {
+            "type" : "1",
+            "zoom" : "inside",
+            "position" : "high",
+            "description" : "Pitch a 4-seam fastball. It's late in the game and the batter is high in the lineup and disciplined—so you just want straight heat with this pitch."
+        }
+    ],
+    "4Seam_12" : [
+        {
+            "type" : "1",
+            "zoom" : "outside",
+            "position" : "high",
+            "description" : "Pitch a 4-seam fastball moderately outside. The pitcher isn't accurate so this should be your default pitch, and the batters are merely OK. They won't be able to hit fastballs as well."
+        }
+    ],
+    "4Seam_13" : [
+        {
+            "type" : "1",
+            "zoom" : "inside",
+            "position" : "low",
+            "description" : "Pitch a 4-seam at the knees. The pitcher isn't accurate, so it doesn't really matter that the batters aren't as good. They're still disciplined so far so this fastball is your best pitch right now."
+        }
+    ],
+    "4Seam_14" : [
+        {
+            "type" : "1",
+            "zoom" : "outside",
+            "position" : "low",
+            "description" : "Pitch a 4-seam fastball moderately outside. You're behind in the count and need a strike, and you really can't risk getting a ball, which is why the 4-seam fastball is the best pitch currently."
+        }
+    ],
+    "4Seam_15" : [
+        {
+            "type" : "1",
+            "zoom" : "inside",
+            "position" : "low",
+            "description" : "Pitch a 4-seam fastball. There is a dangerous runner so you don't want to use a breaking ball, but this pitch is perfect because it's still fast and it has heat. This is why you should pitch the 4-seam, and maybe get ahead in the count; the batter is disciplined so he wouldn't swing at any other pitch."
+        }
+    ],
+    "4Seam_16" : [
+        {
+            "type" : "1",
+            "zoom" : "outside",
+            "position" : "high",
+            "description" : "Pitch a 4-seam fastball. Since you're losing and the batter is high in the lineup and probably pretty good, you don't want to risk it. Use this fast, straightforward pitch. Pitch it OUTSIDE."
+        }
+    ],
+    "4Seam_17" : [
+        {
+            "type" : "1",
+            "zoom" : "inside",
+            "position" : "low",
+            "description" : "Pitch a 4-seam fastball. Since you're losing and the batter is low in the lineup, you don't want to risk it. Use this fast, straightforward pitch. Pitch it INSIDE."
+        }
+    ],
+    "4Seam_18" : [
+        {
+            "type" : "1",
+            "zoom" : "inside",
+            "position" : "low",
+            "description" : "You don't have an option here. You are behind in the count and absolutely need a strike. Pitch a 4-seam fastball, at the knees, in order to save face."
+        }
+    ],
 
-    "2Seam_1" : "Pitch a 2-seam fastball outside! Since the count is 0-0 and it's late in the game, the run difference really matters. In this case you are winning so it's OK to try a slightly riskier maneuver: an outside pitch. The 2-seam breaks outside so it's harder to hit, which is what you want in this case.",
-    "2Seam_2" : "Pitch a 2-seam, which breaks towards the outside! This way you'll get the batter to swing, since this pitch is still fast but it moves a LOT!",
-    "2Seam_3" : "Pitch a 2-seam fastball, which breaks outside. The pitcher is pretty accurate and you want to prevent the dangerous runners (2B or 3B) from advancing, since the game is only a matter of two or three runs. This pitch is also harder to hit than the 4-seam because it moves so much.",
-    "2Seam_4" : "Pitch a 2-seam fastball HIGH. The batter didn't chase but hopefully a high pitch will make him, especially because he's slightly nervous about not striking out. The pitch also moves quite a bit.",
-    "2Seam_5" : "Pitch a 2-seam. The pitcher is doing OK, and the batters are pretty disciplined despite being lower in the lineup. Since your curveball isn't as good you should go with the next best thing-the 2-seam, since it moves a lot and is hard to hit.",
-    "2Seam_6" : "Pitch a 2-seam fastball. There is a dangerous runner so you don't want to use a breaking ball, but this pitch is perfect because it's still fast and it moves a lot. This is why you should pitch the 2-seam, and maybe get ahead in the count.",
+    "2Seam_1" : [
+        {
+            "type" : "2",
+            "zoom" : "outside",
+            "position" : "low",
+            "description" : "Pitch a 2-seam fastball outside! Since the count is 0-0 and it's late in the game, the run difference really matters. In this case you are winning so it's OK to try a slightly riskier maneuver: an outside pitch. The 2-seam breaks outside so it's harder to hit, which is what you want in this case."
+        }
+    ],
+    "2Seam_2" : [
+        {
+            "type" : "2",
+            "zoom" : "outside",
+            "position" : "high",
+            "description" : "Pitch a 2-seam, which breaks towards the outside! This way you'll get the batter to swing, since this pitch is still fast but it moves a LOT!"
+        }
+    ],
+    "2Seam_3" : [
+        {
+            "type" : "2",
+            "zoom" : "outside",
+            "position" : "low",
+            "description" : "Pitch a 2-seam fastball, which breaks outside. The pitcher is pretty accurate and you want to prevent the dangerous runners (2B or 3B) from advancing, since the game is only a matter of two or three runs. This pitch is also harder to hit than the 4-seam because it moves so much."
+        }
+    ],
+    "2Seam_4" : [
+        {
+            "type" : "2",
+            "zoom" : "outside",
+            "position" : "high",
+            "description" : "Pitch a 2-seam fastball HIGH. The batter didn't chase but hopefully a high pitch will make him, especially because he's slightly nervous about not striking out. The pitch also moves quite a bit."
+        }
+    ],
+    "2Seam_5" : [
+        {
+            "type" : "2",
+            "zoom" : "inside",
+            "position" : "low",
+            "description" : "Pitch a 2-seam. The pitcher is doing OK, and the batters are pretty disciplined despite being lower in the lineup. Since your curveball isn't as good you should go with the next best thing-the 2-seam, since it moves a lot and is hard to hit."
+        }
+    ],
+    "2Seam_6" : [
+        {
+            "type" : "2",
+            "zoom" : "outside",
+            "position" : "low",
+            "description" : "Pitch a 2-seam fastball. There is a dangerous runner so you don't want to use a breaking ball, but this pitch is perfect because it's still fast and it moves a lot. This is why you should pitch the 2-seam, and maybe get ahead in the count."
+        }
+    ],
     
-    "Curv_1" : "Pitch a curveball, moderately outside! Since the count is 0-0 and it's late in the game, the run difference really matters. In this case you are losing but will still want to surprise the batter so that he can't get a hit as easily; first-pitch curveballs aren't too common.",
-    "Curv_2" : "Pitch a curveball. This is a tight situation—the game is a matter of two or three runs. Risks must be taken. The curveball is your best bet because it's hard to hit and batters often chase, even if it's not a strike. You're also ahead or even in the count and can risk getting another ball.",
-    "Curv_3" : "Pitch a curveball. The pitcher is doing OK, and the batters are pretty disciplined despite being lower in the lineup. Since your curveball is pretty good you should use it to hopefully fish a strikeout--the pitch moves and is hard to hit, since it breaks so much.",
-    "Curv_4" : "Pitch a curveball. Given that there isn't a dangerous runner and the count is pretty even, you want to make the batter swing. Even if he's disciplined he'll still want to swing at a curveball, and you can take the risk!",
+    "Curv_1" : [
+        {
+            "type" : "3",
+            "zoom" : "outside",
+            "position" : "low",
+            "description" : "Pitch a curveball, moderately outside! Since the count is 0-0 and it's late in the game, the run difference really matters. In this case you are losing but will still want to surprise the batter so that he can't get a hit as easily; first-pitch curveballs aren't too common."
+        }
+    ],
+    "Curv_2" : [
+        {
+            "type" : "3",
+            "zoom" : "inside",
+            "position" : "low",
+            "description" : "Pitch a curveball. This is a tight situation—the game is a matter of two or three runs. Risks must be taken. The curveball is your best bet because it's hard to hit and batters often chase, even if it's not a strike. You're also ahead or even in the count and can risk getting another ball."
+        }
+    ],
+    "Curv_3" : [
+        {
+            "type" : "3",
+            "zoom" : "inside",
+            "position" : "low",
+            "description" : "Pitch a curveball. The pitcher is doing OK, and the batters are pretty disciplined despite being lower in the lineup. Since your curveball is pretty good you should use it to hopefully fish a strikeout--the pitch moves and is hard to hit, since it breaks so much."
+        }
+    ],
+    "Curv_4" : [
+        {
+            "type" : "3",
+            "zoom" : "outside",
+            "position" : "low",
+            "description" : "Pitch a curveball. Given that there isn't a dangerous runner and the count is pretty even, you want to make the batter swing. Even if he's disciplined he'll still want to swing at a curveball, and you can take the risk!"
+        }
+    ],
     
-    "Changeup_1" : "Pitch a changeup! Since the count is 0-0 and it's late in the game, the run difference really matters. In this case you are losing, and since the batter is lower in the lineup, it is OK to risk a wild pitch given that there aren't any runners on base.",
-    "Changeup_2" : "Pitch a changeup, at the knees! Since the count is 0-0 and it's NOT late in the game, the run difference doesn't matter as much. In this case you are winning, and since the batter is lower in the lineup, you want to throw a changeup, which looks like a fastball but slower, to make him swing.",
-    "Changeup_3" : "Pitch a changeup. The game is really tight, only a matter of a couple of runs, and you need this strikeout. A changeup is perfect because it looks like a fastball but comes much slower, and so many batters often swing even though it dips down for a ball 90% of the time.",
-    "Changeup_4" : "Pitch a changeup. This pitch is still effective even though the pitcher isn't very accurate. Right now you want a strikeout and this pitch is your best bet because it looks like a fastball but comes in slower. Furthermore, the pitcher doesn't need to be as accurate to have to throw it effectively.",
+    "Changeup_1" : [
+        {
+            "type" : "4",
+            "zoom" : "inside",
+            "position" : "high",
+            "description" : "Pitch a changeup! Since the count is 0-0 and it's late in the game, the run difference really matters. In this case you are losing, and since the batter is lower in the lineup, it is OK to risk a wild pitch given that there aren't any runners on base."
+        }
+    ],
+    "Changeup_2" : [
+        {
+            "type" : "4",
+            "zoom" : "inside",
+            "position" : "low",
+            "description" : "Pitch a changeup, at the knees! Since the count is 0-0 and it's NOT late in the game, the run difference doesn't matter as much. In this case you are winning, and since the batter is lower in the lineup, you want to throw a changeup, which looks like a fastball but slower, to make him swing."
+        }
+    ],
+    "Changeup_3" : [
+        {
+            "type" : "4",
+            "zoom" : "outside",
+            "position" : "low",
+            "description" : "Pitch a changeup. The game is really tight, only a matter of a couple of runs, and you need this strikeout. A changeup is perfect because it looks like a fastball but comes much slower, and so many batters often swing even though it dips down for a ball 90% of the time."
+        }
+    ],
+    "Changeup_4" : [
+        {
+            "type" : "4",
+            "zoom" : "inside",
+            "position" : "low",
+            "description" : "Pitch a changeup. This pitch is still effective even though the pitcher isn't very accurate. Right now you want a strikeout and this pitch is your best bet because it looks like a fastball but comes in slower. Furthermore, the pitcher doesn't need to be as accurate to have to throw it effectively."
+        }
+    ],
     
-    "Cutter_1" : "Pitch a cutter inside! Since the count is 0-0 and it's NOT late in the game, the run difference doesn't matter as much. In this case you are winning, and since the batter is higher in the lineup, you want to throw a cutter inside to jam him and prevent a hit.",
-    "Cutter_2" : "Pitch a cutter, which breaks towards the inside! This way you'll jam the batter and prevent a hit, which is good considering he's higher in the lineup, although disciplined.",
-    "Cutter_3" : "Pitch a cutter inside. Given that you're still at batters who are OK, the pitcher should be able to hit his spot inside with a cutter, which jams the batter and prevents a big hit!",
-    "Cutter_4" : "Pitch a cutter. The pitcher looks pretty accurate, and you're winning! This pitch, thrown inside, will jam the batter and make it pretty hard to hit, so he might strike out, but it will still stay within the strike zone.",
+    "Cutter_1" : [
+        {
+            "type" : "5",
+            "zoom" : "inside",
+            "position" : "high",
+            "description" : "Pitch a cutter inside! Since the count is 0-0 and it's NOT late in the game, the run difference doesn't matter as much. In this case you are winning, and since the batter is higher in the lineup, you want to throw a cutter inside to jam him and prevent a hit."
+        }
+    ],
+    "Cutter_2" : [
+        {
+            "type" : "5",
+            "zoom" : "indide",
+            "position" : "low",
+            "description" : "Pitch a cutter, which breaks towards the inside! This way you'll jam the batter and prevent a hit, which is good considering he's higher in the lineup, although disciplined."
+        }
+    ],
+    "Cutter_3" : [
+        {
+            "type" : "5",
+            "zoom" : "indide",
+            "position" : "low",
+            "description" : "Pitch a cutter inside. Given that you're still at batters who are OK, the pitcher should be able to hit his spot inside with a cutter, which jams the batter and prevents a big hit!"
+        }
+    ],
+    "Cutter_4" : [
+        {
+            "type" : "5",
+            "zoom" : "inside",
+            "position" : "low",
+            "description" : "Pitch a cutter. The pitcher looks pretty accurate, and you're winning! This pitch, thrown inside, will jam the batter and make it pretty hard to hit, so he might strike out, but it will still stay within the strike zone."
+        }
+    ],
     
-    "Slider_1" : "Pitch a slider, which goes outside! The batter chased, and chances are, with this pitch you'll maybe get a strike. This will make him swing but the slider is a very hard pitch to hit.",
-    "Slider_2" : "Pitch a slider, which breaks outside! The pitcher has thrown a couple of innings and is pretty accurate so this pitch will probably be thrown right, and since you want to maintain your lead your best bet is to strike the batter out.",
-    "Slider_3" : "Pitch a slider. The pitcher is doing well in terms of accuracy and the lower lineup batter is more likely to swing at this breaking ball. Since the run difference is smaller and it's late in the game you need this strikeout!"
+    "Slider_1" : [
+        {
+            "type" : "5",
+            "zoom" : "outside",
+            "position" : "high",
+            "description" : "Pitch a slider, which goes outside! The batter chased, and chances are, with this pitch you'll maybe get a strike. This will make him swing but the slider is a very hard pitch to hit."
+        }
+    ],
+    "Slider_2" : [
+        {
+            "type" : "5",
+            "zoom" : "outside",
+            "position" : "low",
+            "description" : "Pitch a slider, which breaks outside! The pitcher has thrown a couple of innings and is pretty accurate so this pitch will probably be thrown right, and since you want to maintain your lead your best bet is to strike the batter out."
+        }
+    ],
+    "Slider_3" : [
+        {
+            "type" : "5",
+            "zoom" : "inside",
+            "position" : "low",
+            "description" : "Pitch a slider. The pitcher is doing well in terms of accuracy and the lower lineup batter is more likely to swing at this breaking ball. Since the run difference is smaller and it's late in the game you need this strikeout!"
+        }
+    ]
 
 }
