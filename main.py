@@ -174,6 +174,19 @@ class PitchingStrategy(KnowledgeEngine):
     Position :
         high or low
     Description :
+
+    Facts:
+    strikes: 0~2
+    balls: 0~3
+    outs: 0~2
+    late_innings : yes/no
+    front_order: yes/ no.
+    batter_chased : yes into.
+    scoring_position: yes/no
+    lead : yes/no.
+    pitching_accurately : yes/no
+    power : good/fair/bad
+    pitcher_position: SP/RP/CP
     '''
     
     ## ---------------- Type 1 ----------------
@@ -526,15 +539,15 @@ class PitchingStrategy(KnowledgeEngine):
         Fact(front_order = "no"),
         Fact(pitching_accurately = "yes"))
     def pitching_37(self):
-        self.declare(Fact(pitching = "Slider_1"))
+        self.declare(Fact(pitching = "Slider_2"))
     
     @Rule(Fact(action = "pitching"), 
         Fact(balls = 0),
         Fact(strikes = 1),
-        Fact(batter_chased = "no"),
+        Fact(batter_chased = "yes"),
         Fact(pitching_accurately = "yes"))
     def pitching_38(self):
-        self.declare(Fact(pitching = "Slider_2"))
+        self.declare(Fact(pitching = "Slider_1"))
     
     @Rule(Fact(action = "pitching"), 
         OR(Fact(balls = 0), Fact(balls = 1), Fact(balls = 2)),
