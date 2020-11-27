@@ -79,12 +79,12 @@ class PitchingStrategy(KnowledgeEngine):
             self.declare(Fact(late_innings = "no"))
         else:
             self.declare(Fact(late_innings = "yes"))
-    
+    '''
     @Rule(Fact(action = "pitching"), NOT(Fact(pitcher_position = W())), salience = 88)
     def p_position(self):
         self.pitcher_position = input("What is the position of the pitcher (SP, RP, CP)? \n")
         self.declare(Fact(pitcher_position = self.pitcher_position))
-    
+    '''
     # ---------------- Rules ---------------- 
 
     @Rule(Fact(action = "pitching"), OR(Fact(runner_2 = "yes"), Fact(runner_3 = "yes")))
@@ -95,6 +95,7 @@ class PitchingStrategy(KnowledgeEngine):
     def scoring_position_2(self):
         self.declare(Fact(scoring_position = "no"))
 
+    '''
     @Rule(Fact(action = "pitching"), 
     NOT(Fact(power = W())), 
     NOT(Fact(pitcher_position = "CP"),
@@ -124,14 +125,15 @@ class PitchingStrategy(KnowledgeEngine):
             self.declare(Fact(power = "fair"))
         elif self.thrown <= 8:
             self.declare(Fact(power = "bad"))
-    
+    '''
+
     @Rule(Fact(action = "pitching"), Fact(pitching_accuracy = MATCH.pitching_accuracy),
-    TEST(lambda pitching_accuracy : pitching_accuracy >= 5))
+    TEST(lambda pitching_accuracy : pitching_accuracy >= 6))
     def pitching_accurately_1(self):
         self.declare(Fact(pitching_accurately = "yes"))
     
     @Rule(Fact(action = "pitching"), Fact(pitching_accuracy = MATCH.pitching_accuracy),
-    TEST(lambda pitching_accuracy : pitching_accuracy < 5))
+    TEST(lambda pitching_accuracy : pitching_accuracy < 6))
     def pitching_accurately_2(self):
         self.declare(Fact(pitching_accurately = "no"))
 
@@ -276,10 +278,13 @@ class PitchingStrategy(KnowledgeEngine):
         OR(Fact(balls = 0), Fact(balls = 1), Fact(balls = 2)), 
         Fact(strikes = 2),
         Fact(late_innings = "yes"),
-        Fact(lead = "yes"))
+        Fact(lead = "yes"),
+        Fact(scoring_position = "no"),
+        Fact(front_order = "yes"),
+        Fact(pitching_accurately = "yes"))
     def pitching_10(self):
         self.declare(Fact(pitching = "4Seam_10"))
-    
+
     @Rule(Fact(action = "pitching"), 
         OR(Fact(balls = 0), Fact(balls = 1), Fact(balls = 2)), 
         Fact(strikes = 2),
@@ -331,14 +336,22 @@ class PitchingStrategy(KnowledgeEngine):
     @Rule(Fact(action = "pitching"), 
         Fact(balls = 3), 
         Fact(strikes = 2),
-        Fact(lead = "no"),
-        Fact(front_order = "yes"))
+        Fact(lead = "no"))
     def pitching_16(self):
-        self.declare(Fact(pitching = "4Seam_16"))
+        self.declare(Fact(pitching = "4Seam_18"))
     
-    @Rule(Fact(action = "pitching"), 
+    @Rule(Fact(action = "pitching"),
         Fact(balls = 3),
-        OR(Fact(strikes = 0), Fact(strikes = 1)))
+        OR(Fact(strikes = 0), Fact(strikes = 1)),
+        Fact(front_order = "yes"),
+        Fact(scoring_position = "no"))
+    def pitching_17(self):
+        self.declare(Fact(pitching = "4Seam_19"))
+    
+    @Rule(Fact(action = "pitching"),
+        Fact(balls = 3),
+        OR(Fact(strikes = 0), Fact(strikes = 1)),
+        Fact(scoring_position = "yes"))
     def pitching_18(self):
         self.declare(Fact(pitching = "4Seam_18"))
     # --------------------------------
@@ -402,7 +415,13 @@ class PitchingStrategy(KnowledgeEngine):
         Fact(batter_chased = "yes"))
     def pitching_24(self):
         self.declare(Fact(pitching = "2Seam_6"))
-    
+
+    @Rule(Fact(action = "pitching"),
+        Fact(balls = 3),
+        OR(Fact(strikes = 0), Fact(strikes = 1)),
+        Fact(front_order = "no"))
+    def pitching_40(self):
+        self.declare(Fact(pitching = "2Seam_7"))
     # --------------------------------
 
     # ---------------- Type 3 ----------------
@@ -429,11 +448,10 @@ class PitchingStrategy(KnowledgeEngine):
     @Rule(Fact(action = "pitching"), 
         OR(Fact(balls = 0), Fact(balls = 1), Fact(balls = 2)),
         Fact(strikes = 2),
-        Fact(late_innings = "yes"),
+        Fact(late_innings = "no"),
         Fact(lead = "yes"),
         Fact(batter_chased = "no"),
-        Fact(front_order = "no"),
-        Fact(pitching_accurately = "yes"))
+        Fact(pitching_accurately = "no"))
     def pitching_27(self):
         self.declare(Fact(pitching = "Curv_3"))
     
@@ -479,6 +497,16 @@ class PitchingStrategy(KnowledgeEngine):
         self.declare(Fact(pitching = "Changeup_3"))
     
     @Rule(Fact(action = "pitching"), 
+        OR(Fact(balls = 0), Fact(balls = 1), Fact(balls = 2)),
+        Fact(strikes = 2),
+        Fact(late_innings = "no"),
+        Fact(lead = "yes"),
+        Fact(batter_chased = "yes"),
+        Fact(pitching_accurately = "no"))
+    def pitching_40(self):
+        self.declare(Fact(pitching = "Changeup_3"))
+    
+    @Rule(Fact(action = "pitching"), 
         Fact(balls = 3),
         Fact(strikes = 2),
         Fact(lead = "yes"),
@@ -511,10 +539,11 @@ class PitchingStrategy(KnowledgeEngine):
     @Rule(Fact(action = "pitching"), 
         OR(Fact(balls = 0), Fact(balls = 1), Fact(balls = 2)),
         Fact(strikes = 2),
-        Fact(late_innings = "yes"),
+        Fact(late_innings = "no"),
         Fact(lead = "yes"),
-        Fact(front_order = "no"),
-        Fact(batter_chased = "no"),
+        Fact(front_order = "yes"),
+        Fact(batter_chased = "yes"),
+        Fact(scoring_position = "yes"),
         Fact(pitching_accurately = "yes"))
     def pitching_35(self):
         self.declare(Fact(pitching = "Cutter_3"))
@@ -542,7 +571,7 @@ class PitchingStrategy(KnowledgeEngine):
         OR(Fact(balls = 0), Fact(balls = 1), Fact(balls = 2)),
         Fact(strikes = 2),
         Fact(lead = "yes"),
-        Fact(power = "fair"),
+        Fact(batter_chased = "no"),
         Fact(pitching_accurately = "yes"))
     def pitching_37(self):
         self.declare(Fact(pitching = "Slider_2"))
@@ -552,7 +581,7 @@ class PitchingStrategy(KnowledgeEngine):
         Fact(strikes = 2),
         Fact(late_innings = "yes"),
         Fact(lead = "yes"),
-        Fact(batter_chased = "no"),
+        Fact(batter_chased = "yes"),
         Fact(front_order = "no"),
         Fact(pitching_accurately = "yes"))
     def pitching_39(self):
@@ -571,6 +600,33 @@ class PitchingStrategy(KnowledgeEngine):
 
 if __name__ == "__main__":
     engine = PitchingStrategy()
+    engine.reset()
+    '''
+    engine.declare(Fact(outs='1'))
+
+
+    engine.declare(Fact(strikes=2))
+    engine.declare(Fact(balls=3))
+
+    engine.declare(Fact(batter_order=9))
+
+    engine.declare(Fact(late_innings = 'yes'))
+
+    engine.declare(Fact(our_scored=0))
+    engine.declare(Fact(rival_scored=5))
+
+    engine.declare(Fact(batter_chased='no'))
+
+    engine.declare(Fact(runner_1='no'))
+    engine.declare(Fact(runner_2='no'))
+    engine.declare(Fact(runner_3='no'))
+    
+    engine.declare(Fact(pitching_accuracy=10))
+
+    engine.run()
+    print(engine.facts)
+
+    '''
     while True:
         engine.reset()
         engine.run()
@@ -578,11 +634,4 @@ if __name__ == "__main__":
         print("Would you still like to use the system? (yes/no)")
         if input() == "no":
             exit()
-        '''
-        print("would you need me to keep some information? (yes/no)")
-        if input() == "no":
-            continue
-        else:
-            print("Which information suould I keep?")
-            print("")
-        '''
+            

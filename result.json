@@ -77,7 +77,7 @@
             "type" : "1",
             "zoom" : "inside",
             "position" : "low",
-            "description" : "Pitch a 4-seam fastball. It's late in the game and the run difference is over 4. No matter what, if you're losing or winning, you just want to get the inning done with; 4-seam fastball brings straight heat."
+            "description" : "Pitch a 4-seam fastball. It's late in the game and your team are lead the game. No matter what, you just want to get the inning done with; 4-seam fastball brings straight heat."
         }
     ],
     "4Seam_11" : [
@@ -144,7 +144,14 @@
             "description" : "You don't have an option here. You are behind in the count and absolutely need a strike. Pitch a 4-seam fastball, at the knees, in order to save face."
         }
     ],
-
+    "4Seam_19" : [
+        {
+            "type" : "1",
+            "zoom" : "outside",
+            "position" : "high",
+            "description" : "You are behind in the count. However, most of the batter will not swing in this pitch. Since the batter is HIGH in the lineup, you should consider just give a walk. Pitch a 4-seam fastball outside and high."
+        }
+    ],
     "2Seam_1" : [
         {
             "type" : "2",
@@ -191,6 +198,14 @@
             "zoom" : "outside",
             "position" : "low",
             "description" : "Pitch a 2-seam fastball. There is a dangerous runner so you don't want to use a breaking ball, but this pitch is perfect because it's still fast and it moves a lot. This is why you should pitch the 2-seam, and maybe get ahead in the count."
+        }
+    ],
+    "2Seam_7" : [
+        {
+            "type" : "1",
+            "zoom" : "inside",
+            "position" : "low",
+            "description" : "You are behind in the count. However, most of the batter will not swing in this pitching. Since the batter is LOW in the lineup, pitch a 2-seam fastball inside and low. Your should make this pitching seem very easy to be hitten (close to sweet spot) but can't be a long hit."
         }
     ],
     
