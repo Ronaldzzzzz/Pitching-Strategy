@@ -530,18 +530,6 @@ class PitchingStrategy(KnowledgeEngine):
     # --------------------------------
 
     # ---------------- Type 5 ----------------
-
-    @Rule(Fact(action = "pitching"), 
-        OR(Fact(balls = 0), Fact(balls = 1), Fact(balls = 2)),
-        Fact(strikes = 2),
-        Fact(late_innings = "yes"),
-        Fact(lead = "yes"),
-        Fact(batter_chased = "no"),
-        Fact(front_order = "no"),
-        Fact(pitching_accurately = "yes"))
-    def pitching_37(self):
-        self.declare(Fact(pitching = "Slider_2"))
-    
     @Rule(Fact(action = "pitching"), 
         Fact(balls = 0),
         Fact(strikes = 1),
@@ -557,6 +545,17 @@ class PitchingStrategy(KnowledgeEngine):
         Fact(power = "fair"),
         Fact(pitching_accurately = "yes"))
     def pitching_37(self):
+        self.declare(Fact(pitching = "Slider_2"))
+    
+    @Rule(Fact(action = "pitching"), 
+        OR(Fact(balls = 0), Fact(balls = 1), Fact(balls = 2)),
+        Fact(strikes = 2),
+        Fact(late_innings = "yes"),
+        Fact(lead = "yes"),
+        Fact(batter_chased = "no"),
+        Fact(front_order = "no"),
+        Fact(pitching_accurately = "yes"))
+    def pitching_39(self):
         self.declare(Fact(pitching = "Slider_3"))
     # --------------------------------
 
