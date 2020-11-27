@@ -278,6 +278,7 @@ class PitchingStrategy(KnowledgeEngine):
     def pitching_11(self):
         self.declare(Fact(pitching = "4Seam_11"))
     
+    '''
     @Rule(Fact(action = "pitching"), 
         OR(Fact(balls = 0), Fact(balls = 1), Fact(balls = 2)), 
         Fact(strikes = 2),
@@ -288,7 +289,7 @@ class PitchingStrategy(KnowledgeEngine):
         Fact(pitching_accurately = "no"))
     def pitching_12(self):
         self.declare(Fact(pitching = "4Seam_12"))
-    
+    '''
     @Rule(Fact(action = "pitching"), 
         OR(Fact(balls = 0), Fact(balls = 1), Fact(balls = 2)), 
         Fact(strikes = 2),
@@ -375,9 +376,9 @@ class PitchingStrategy(KnowledgeEngine):
         Fact(strikes = 2),
         Fact(late_innings = "yes"),
         Fact(lead = "yes"),
-        Fact(pitching_accurately = "yes"),
         Fact(batter_chased = "no"),
-        Fact(front_order = "no"))
+        Fact(front_order = "no"),
+        Fact(pitching_accurately = "yes"))
     def pitching_23(self):
         self.declare(Fact(pitching = "2Seam_5"))
 
@@ -462,7 +463,7 @@ class PitchingStrategy(KnowledgeEngine):
         Fact(pitching_accurately = "yes"),
         Fact(scoring_position = "no"))
     def pitching_31(self):
-        self.declare(Fact(pitching = "Changeup_2"))
+        self.declare(Fact(pitching = "Changeup_3"))
     
     @Rule(Fact(action = "pitching"), 
         Fact(balls = 3),
@@ -470,7 +471,7 @@ class PitchingStrategy(KnowledgeEngine):
         Fact(lead = "yes"),
         Fact(pitching_accurately = "no"))
     def pitching_32(self):
-        self.declare(Fact(pitching = "Changeup_2"))
+        self.declare(Fact(pitching = "Changeup_4"))
     
     # --------------------------------
 
