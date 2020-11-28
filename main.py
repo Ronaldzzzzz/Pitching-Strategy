@@ -2,17 +2,18 @@ from experta import *
 import json
 
 pitching_result = {}
+pitch = ""
 
 class PitchingStrategy(KnowledgeEngine):
     @DefFacts()
     def start(self):
 
         global pitching_result
-        with open('result.json') as f:
+        with open('result.json', encoding="utf-8") as f:
             pitching_result = json.load(f)
 
-        print("\nHello! This is an expert system that to help you to select the pitching strategy based on the situation!")
-        print("I will ask you a few questions about this plate appearance. And then I will also tell you where/how you should pitch.\n\n")
+        #print("\nHello! This is an expert system that to help you to select the pitching strategy based on the situation!")
+        #print("I will ask you a few questions about this plate appearance. And then I will also tell you where/how you should pitch.\n\n")
         yield Fact(action = "pitching")
 
     # ---------------- Facts ---------------- 
@@ -593,15 +594,19 @@ class PitchingStrategy(KnowledgeEngine):
     @Rule(Fact(action = "pitching"),Fact(pitching = MATCH.pitching))
     def getPitching(self, pitching):
         global pitching_result
+        global pitch
+        pitch = pitching
         print(pitching)
         print(pitching_result[pitching])
-        
 
+    def printPitching(self):
+        global pitch
+        return pitch, pitching_result[pitch]
 
 if __name__ == "__main__":
     engine = PitchingStrategy()
     engine.reset()
-    '''
+    
     engine.declare(Fact(outs='1'))
 
 
@@ -634,4 +639,4 @@ if __name__ == "__main__":
         print("Would you still like to use the system? (yes/no)")
         if input() == "no":
             exit()
-            
+    '''
