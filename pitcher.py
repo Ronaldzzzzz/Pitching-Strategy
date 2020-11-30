@@ -12,11 +12,11 @@ class PitchingStrategy(KnowledgeEngine):
         with open('result.json', encoding="utf-8") as f:
             pitching_result = json.load(f)
 
-        #print("\nHello! This is an expert system that to help you to select the pitching strategy based on the situation!")
-        #print("I will ask you a few questions about this plate appearance. And then I will also tell you where/how you should pitch.\n\n")
         yield Fact(action = "pitching")
 
-    # ---------------- Facts ---------------- 
+    # -----------------------------------------------------------
+    # Facts
+    # -----------------------------------------------------------
 
     @Rule(Fact(action = "pitching"), NOT(Fact(runner_1 = W())), salience = 100)
     def runner_at_1(self):
@@ -45,7 +45,7 @@ class PitchingStrategy(KnowledgeEngine):
     
     @Rule(Fact(action = "pitching"), NOT(Fact(outs = W())), salience = 95)
     def num_of_outs(self):
-        self.outs = input("How many outs are there in this inning(0-2)? \n")
+        self.outs = int(input("How many outs are there in this inning(0-2)? \n"))
         self.declare(Fact(outs = self.outs))
 
     @Rule(Fact(action = "pitching"), NOT(Fact(our_scored = W())), salience = 94)
@@ -86,8 +86,10 @@ class PitchingStrategy(KnowledgeEngine):
         self.pitcher_position = input("What is the position of the pitcher (SP, RP, CP)? \n")
         self.declare(Fact(pitcher_position = self.pitcher_position))
     '''
-    # ---------------- Rules ---------------- 
 
+    # -----------------------------------------------------------
+    # Rules layout
+    # -----------------------------------------------------------
     @Rule(Fact(action = "pitching"), OR(Fact(runner_2 = "yes"), Fact(runner_3 = "yes")))
     def scoring_position_1(self):
         self.declare(Fact(scoring_position = "yes"))
@@ -164,7 +166,9 @@ class PitchingStrategy(KnowledgeEngine):
     def front_order_2(self):
         self.declare(Fact(front_order = "no"))
 
-    # ---------------- Pitching ----------------
+    # -----------------------------------------------------------
+    # Pitching layout
+    # -----------------------------------------------------------
     '''
     Type : 
         1: 4-Seam Fastball
@@ -192,7 +196,9 @@ class PitchingStrategy(KnowledgeEngine):
     pitcher_position: SP/RP/CP
     '''
     
-    ## ---------------- Type 1 ----------------
+    # -----------------------------------------------------------
+    # Type 1 : 4-Seam Fastball
+    # -----------------------------------------------------------
     
     @Rule(Fact(action = "pitching"), 
         Fact(balls = 0), 
@@ -239,7 +245,7 @@ class PitchingStrategy(KnowledgeEngine):
         Fact(pitching_accurately = "no"))
     def pitching_5(self):
         self.declare(Fact(pitching = "4Seam_5"))
-
+    '''
     @Rule(Fact(action = "pitching"), 
         OR(Fact(balls = 0), Fact(balls = 1), Fact(balls = 2)), 
         Fact(strikes = 2),
@@ -256,7 +262,7 @@ class PitchingStrategy(KnowledgeEngine):
         Fact(pitching_accurately = "no"))
     def pitching_7(self):
         self.declare(Fact(pitching = "4Seam_7"))
-
+    '''
     @Rule(Fact(action = "pitching"), 
         OR(Fact(balls = 0), Fact(balls = 1), Fact(balls = 2)), 
         Fact(strikes = 2),
@@ -355,9 +361,10 @@ class PitchingStrategy(KnowledgeEngine):
         Fact(scoring_position = "yes"))
     def pitching_18(self):
         self.declare(Fact(pitching = "4Seam_18"))
-    # --------------------------------
 
-    # ---------------- Type 2 ----------------
+    # -----------------------------------------------------------
+    # Type 2 : 2-Seam Fastball or Sinker
+    # -----------------------------------------------------------
 
     @Rule(Fact(action = "pitching"), 
         Fact(balls = 0),
@@ -423,9 +430,10 @@ class PitchingStrategy(KnowledgeEngine):
         Fact(front_order = "no"))
     def pitching_40(self):
         self.declare(Fact(pitching = "2Seam_7"))
-    # --------------------------------
 
-    # ---------------- Type 3 ----------------
+    # -----------------------------------------------------------
+    # Type 3 : Curveball or Forkball
+    # -----------------------------------------------------------
 
     @Rule(Fact(action = "pitching"), 
         Fact(balls = 0),
@@ -463,9 +471,9 @@ class PitchingStrategy(KnowledgeEngine):
     def pitching_28(self):
         self.declare(Fact(pitching = "Curv_4"))
 
-    # --------------------------------
-
-    # ---------------- Type 4 ----------------
+    # -----------------------------------------------------------
+    # Type 4 : Changeups or Splitters
+    # -----------------------------------------------------------
 
     @Rule(Fact(action = "pitching"), 
         Fact(balls = 0),
@@ -514,10 +522,10 @@ class PitchingStrategy(KnowledgeEngine):
         Fact(pitching_accurately = "no"))
     def pitching_32(self):
         self.declare(Fact(pitching = "Changeup_4"))
-    
-    # --------------------------------
 
-    # ---------------- Type 4 ----------------
+    # -----------------------------------------------------------
+    # Type 5 : Slider or Cutter
+    # -----------------------------------------------------------
 
     @Rule(Fact(action = "pitching"), 
         Fact(balls = 0),
@@ -557,9 +565,6 @@ class PitchingStrategy(KnowledgeEngine):
     def pitching_36(self):
         self.declare(Fact(pitching = "Cutter_4"))
     
-    # --------------------------------
-
-    # ---------------- Type 5 ----------------
     @Rule(Fact(action = "pitching"), 
         Fact(balls = 0),
         Fact(strikes = 1),
@@ -587,51 +592,28 @@ class PitchingStrategy(KnowledgeEngine):
         Fact(pitching_accurately = "yes"))
     def pitching_39(self):
         self.declare(Fact(pitching = "Slider_3"))
-    # --------------------------------
 
-    # ---------------- Results ---------------- 
+    # -----------------------------------------------------------
+    # Result
+    # -----------------------------------------------------------
 
     @Rule(Fact(action = "pitching"),Fact(pitching = MATCH.pitching))
     def getPitching(self, pitching):
         global pitching_result
         global pitch
         pitch = pitching
-        print(pitching)
-        print(pitching_result[pitching])
 
     def printPitching(self):
         global pitch
         return pitch, pitching_result[pitch]
 
 if __name__ == "__main__":
+
+    print("\nHello! This is an expert system that to help you to select the pitching strategy based on the situation!")
+    print("I will ask you a few questions about this plate appearance. And then I will also tell you where/how you should pitch.\n\n")
+
     engine = PitchingStrategy()
-    engine.reset()
     
-    engine.declare(Fact(outs='1'))
-
-
-    engine.declare(Fact(strikes=2))
-    engine.declare(Fact(balls=3))
-
-    engine.declare(Fact(batter_order=9))
-
-    engine.declare(Fact(late_innings = 'yes'))
-
-    engine.declare(Fact(our_scored=0))
-    engine.declare(Fact(rival_scored=5))
-
-    engine.declare(Fact(batter_chased='no'))
-
-    engine.declare(Fact(runner_1='no'))
-    engine.declare(Fact(runner_2='no'))
-    engine.declare(Fact(runner_3='no'))
-    
-    engine.declare(Fact(pitching_accuracy=10))
-
-    engine.run()
-    print(engine.facts)
-
-    '''
     while True:
         engine.reset()
         engine.run()
@@ -639,4 +621,3 @@ if __name__ == "__main__":
         print("Would you still like to use the system? (yes/no)")
         if input() == "no":
             exit()
-    '''
