@@ -5,7 +5,7 @@ import pitcher
 
 introduction = "Hello! This is an expert system that to help you to select the pitching strategy based on the situation!\n"
 introduction += "Please click the image/button/radio button to tell me the information I need, and then clike \"Recommend!\" button.\n"
-introduction += "NOTE: Please pretent all the batters are Right-Handed Hitter."
+introduction += "NOTE: Please pretend all the batters are Right-Handed Hitter."
 
 global first_base
 global second_base
