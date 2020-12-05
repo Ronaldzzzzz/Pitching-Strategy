@@ -88,7 +88,7 @@ class PitchingStrategy(KnowledgeEngine):
     '''
 
     # -----------------------------------------------------------
-    # Rules layout
+    # Rules
     # -----------------------------------------------------------
     @Rule(Fact(action = "pitching"), OR(Fact(runner_2 = "yes"), Fact(runner_3 = "yes")))
     def scoring_position_1(self):
@@ -167,7 +167,7 @@ class PitchingStrategy(KnowledgeEngine):
         self.declare(Fact(front_order = "no"))
 
     # -----------------------------------------------------------
-    # Pitching layout
+    # Pitching 
     # -----------------------------------------------------------
     '''
     Type : 
@@ -187,8 +187,8 @@ class PitchingStrategy(KnowledgeEngine):
     balls: 0~3
     outs: 0~2
     late_innings : yes/no
-    front_order: yes/ no.
-    batter_chased : yes into.
+    front_order: yes/no.
+    batter_chased : yes/no.
     scoring_position: yes/no
     lead : yes/no.
     pitching_accurately : yes/no
@@ -273,6 +273,7 @@ class PitchingStrategy(KnowledgeEngine):
     @Rule(Fact(action = "pitching"), 
         OR(Fact(balls = 0), Fact(balls = 1), Fact(balls = 2)), 
         Fact(strikes = 2),
+        OR(Fact(outs = 0), Fact(outs = 1)), 
         Fact(late_innings = "yes"),
         Fact(lead = "yes"),
         Fact(batter_chased = "yes"),
@@ -280,6 +281,18 @@ class PitchingStrategy(KnowledgeEngine):
         Fact(pitching_accurately = "no"))
     def pitching_9(self):
         self.declare(Fact(pitching = "4Seam_9"))
+    
+    @Rule(Fact(action = "pitching"), 
+        OR(Fact(balls = 0), Fact(balls = 1), Fact(balls = 2)), 
+        Fact(strikes = 2),
+        Fact(outs = 2), 
+        Fact(late_innings = "yes"),
+        Fact(lead = "yes"),
+        Fact(batter_chased = "yes"),
+        Fact(scoring_position = "yes"),
+        Fact(pitching_accurately = "no"))
+    def pitching_9_1(self):
+        self.declare(Fact(pitching = "4Seam_9-1"))
     
     @Rule(Fact(action = "pitching"), 
         OR(Fact(balls = 0), Fact(balls = 1), Fact(balls = 2)), 
@@ -335,11 +348,21 @@ class PitchingStrategy(KnowledgeEngine):
     @Rule(Fact(action = "pitching"), 
         OR(Fact(balls = 1), Fact(balls = 2)), 
         Fact(strikes = 1),
+        OR(Fact(outs = 0), Fact(outs = 1)), 
         Fact(scoring_position = "yes"),
         Fact(batter_chased = "no"))
     def pitching_15(self):
         self.declare(Fact(pitching = "4Seam_15"))
     
+    @Rule(Fact(action = "pitching"), 
+        OR(Fact(balls = 1), Fact(balls = 2)), 
+        Fact(strikes = 1),
+        Fact(outs = 2),
+        Fact(scoring_position = "yes"),
+        Fact(batter_chased = "no"))
+    def pitching_15_1(self):
+        self.declare(Fact(pitching = "4Seam_15_1"))
+
     @Rule(Fact(action = "pitching"), 
         Fact(balls = 3), 
         Fact(strikes = 2),
@@ -386,6 +409,7 @@ class PitchingStrategy(KnowledgeEngine):
     @Rule(Fact(action = "pitching"), 
         OR(Fact(balls = 0), Fact(balls = 1), Fact(balls = 2)),
         Fact(strikes = 2),
+        OR(Fact(outs = 0), Fact(outs = 1)), 
         Fact(late_innings = "yes"),
         Fact(lead = "yes"),
         Fact(pitching_accurately = "yes"),
@@ -393,6 +417,18 @@ class PitchingStrategy(KnowledgeEngine):
         Fact(scoring_position = "yes"))
     def pitching_21(self):
         self.declare(Fact(pitching = "2Seam_3"))
+    
+    @Rule(Fact(action = "pitching"), 
+        OR(Fact(balls = 0), Fact(balls = 1), Fact(balls = 2)),
+        Fact(strikes = 2),
+        Fact(outs = 2),
+        Fact(late_innings = "yes"),
+        Fact(lead = "yes"),
+        Fact(pitching_accurately = "yes"),
+        Fact(batter_chased = "yes"),
+        Fact(scoring_position = "yes"))
+    def pitching_21_1(self):
+        self.declare(Fact(pitching = "2Seam_3_1"))
 
     @Rule(Fact(action = "pitching"), 
         OR(Fact(balls = 0), Fact(balls = 1), Fact(balls = 2)),
@@ -419,10 +455,20 @@ class PitchingStrategy(KnowledgeEngine):
     @Rule(Fact(action = "pitching"), 
         OR(Fact(balls = 1), Fact(balls = 2)),
         Fact(strikes = 1),
+        OR(Fact(outs = 0), Fact(outs = 1)), 
         Fact(scoring_position = "yes"),
         Fact(batter_chased = "yes"))
     def pitching_24(self):
         self.declare(Fact(pitching = "2Seam_6"))
+    
+    @Rule(Fact(action = "pitching"), 
+        OR(Fact(balls = 1), Fact(balls = 2)),
+        Fact(strikes = 1),
+        Fact(outs = 2),
+        Fact(scoring_position = "yes"),
+        Fact(batter_chased = "yes"))
+    def pitching_24_1(self):
+        self.declare(Fact(pitching = "2Seam_6_1"))
 
     @Rule(Fact(action = "pitching"),
         Fact(balls = 3),

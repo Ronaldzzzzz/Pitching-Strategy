@@ -80,6 +80,15 @@
             "description": "Pitch a 4-seam fastball at the knees. The runners on base are very dangerous, and the pitcher isn't accurate so you don't want to risk a wild pitch; thus this is your safest bet."
         }
     ],
+    "4Seam_9-1": [
+        {
+            "type": "1",
+            "zoom": "inside",
+            "corner": "inside",
+            "position": "low",
+            "description": "Pitch a 4-seam fastball at the knees. The pitcher isn't accurate so you don't want to risk a wild pitch. There are runners on base, however, it's 2 outs now. Just FOCUS on the batter. This is your best bet."
+        }
+    ],
     "4Seam_10": [
         {
             "type": "1",
@@ -132,6 +141,15 @@
             "corner": "inside",
             "position": "low",
             "description": "Pitch a 4-seam fastball. There is a dangerous runner so you don't want to use a breaking ball, but this pitch is perfect because it's still fast and it has heat. This is why you should pitch the 4-seam, and maybe get ahead in the count; the batter is disciplined so he wouldn't swing at any other pitch."
+        }
+    ],
+    "4Seam_15_1": [
+        {
+            "type": "1",
+            "zoom": "inside",
+            "corner": "inside",
+            "position": "low",
+            "description": "Pitch a 4-seam fastball. This pitch is perfect because it's still fast and it has heat. This is why you should pitch the 4-seam, and maybe get ahead in the count. There is a dangerous runner, but it's 2 outs so don't be disturbed. The batter is disciplined so he wouldn't swing at any other pitch."
         }
     ],
     "4Seam_16": [
@@ -197,6 +215,15 @@
             "description": "Pitch a 2-seam fastball, which breaks outside. The pitcher is pretty accurate and you want to prevent the dangerous runners (2B or 3B) from advancing. This pitch is also harder to hit than the 4-seam because it moves so much."
         }
     ],
+    "2Seam_3_1": [
+        {
+            "type": "2",
+            "zoom": "inside",
+            "corner": "inside",
+            "position": "middle",
+            "description": "Pitch a 2-seam fastball, which breaks outside. The pitcher is pretty accurate and you want to prevent the a hit. Although there is two outs, you will definitely want this strike out to end the inning. This pitch is also harder to hit than the 4-seam because it moves so much."
+        }
+    ],
     "2Seam_4": [
         {
             "type": "2",
@@ -222,6 +249,15 @@
             "corner": "outside",
             "position": "low",
             "description": "Pitch a 2-seam fastball. There is a dangerous runner so you don't want to use a breaking ball, but this pitch is perfect because it's still fast and it moves a lot. This is why you should pitch the 2-seam, and maybe get ahead in the count."
+        }
+    ],
+    "2Seam_6_1": [
+        {
+            "type": "2",
+            "zoom": "inside",
+            "corner": "outside",
+            "position": "low",
+            "description": "Pitch a 2-seam fastball. This pitch is perfect because it's still fast and it moves a lot. This is why you should pitch the 2-seam, and maybe get ahead in the count. There is a dangerous runner, but since it's 2 outs, so don't be disturbed."
         }
     ],
     "2Seam_7": [

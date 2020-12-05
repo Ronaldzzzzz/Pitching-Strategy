@@ -89,6 +89,8 @@ def execute():
 
     # Inference Starting
     engine.reset()
+    print(engine.facts)
+    print("------")
     engine.declare(Fact(outs = int(out.get())))
     engine.declare(Fact(strikes = int(strike.get())))
     engine.declare(Fact(balls = int(ball.get())))
@@ -108,7 +110,8 @@ def execute():
     
     engine.declare(Fact(pitching_accuracy = int(pitcher_accu.get())))
     engine.run()
-
+    print(engine.facts)
+    print("------------------------")
     # Get the result
     pitching, pitching_json = engine.printPitching()
     pitching_json = pitching_json[0]
