@@ -20,7 +20,7 @@
     "4Seam_3": [
         {
             "type": "1",
-            "zoom": "outside",
+            "zoom": "inside",
             "corner": "outside",
             "position": "low",
             "description": "Pitch a fastball, moderately outside low! Since the count is 0-0 and it's NOT late in the game, the run difference doesn't matter as much. In this case you are not leading, and the batter didn't swing so he is disciplined; therefore a fastball is the best outcome, keeping it low to prevent a big hit."
@@ -128,7 +128,7 @@
     "4Seam_14": [
         {
             "type": "1",
-            "zoom": "outside",
+            "zoom": "inside",
             "corner": "inside",
             "position": "high",
             "description": "Pitch a 4-seam fastball moderately outside. You're behind in the count and need a strike, and you really can't risk getting a ball, which is why the 4-seam fastball is the best pitch currently."
@@ -272,19 +272,19 @@
     "Curv_1": [
         {
             "type": "3",
-            "zoom": "outside",
-            "corner": "inside",
-            "position": "high",
+            "zoom": "inside",
+            "corner": "outside",
+            "position": "low",
             "description": "Pitch a curveball, moderately outside! Since the count is 0-0 and it's late in the game, the run difference really matters. In this case you are not leading but will still want to surprise the batter so that he can't get a hit as easily; first-pitch curveballs aren't too common."
         }
     ],
     "Curv_2": [
         {
             "type": "3",
-            "zoom": "outside",
+            "zoom": "inside",
             "corner": "inside",
             "position": "low",
-            "description": "Pitch a curveball. The curveball is your best bet because it's hard to hit and batters often chase, even if it's not a strike. You're also ahead or even in the count and can risk getting another ball."
+            "description": "Pitch a curveball and low! The curveball is your best bet because it's hard to hit and batters often chase, even if it's not a strike. You're also ahead or even in the count and can risk getting another ball."
         }
     ],
     "Curv_3": [
@@ -341,6 +341,15 @@
             "description": "Pitch a changeup. This pitch is still effective even though the pitcher isn't very accurate. Right now you want a strikeout and this pitch is your best bet because it looks like a fastball but comes in slower. Furthermore, the pitcher doesn't need to be as accurate to have to throw it effectively."
         }
     ],
+    "Changeup_5": [
+        {
+            "type": "4",
+            "zoom": "inside",
+            "corner": "outside",
+            "position": "high",
+            "description": "Pitch a changeup inside. A changeup is perfect because it looks like a fastball but comes much slower. You don't want to lose in the count, the batter also know this. He will probably swing in the next pitch. Changeup will make he swing and miss."
+        }
+    ],
     "Cutter_1": [
         {
             "type": "5",
@@ -380,9 +389,9 @@
     "Slider_1": [
         {
             "type": "5",
-            "zoom": "outside",
+            "zoom": "inside",
             "corner": "outside",
-            "position": "high",
+            "position": "middle",
             "description": "Pitch a slider, which goes outside! The batter chased, and chances are, with this pitch you'll maybe get a strike. This will make him swing but the slider is a very hard pitch to hit."
         }
     ],

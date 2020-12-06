@@ -1,8 +1,10 @@
 from experta import *
+import random
 import json
 
 pitching_result = {}
 pitch = ""
+last_pitch = ""
 
 class PitchingStrategy(KnowledgeEngine):
     @DefFacts()
@@ -511,7 +513,7 @@ class PitchingStrategy(KnowledgeEngine):
         self.declare(Fact(pitching = "Curv_3"))
     
     @Rule(Fact(action = "pitching"), 
-        OR(Fact(balls = 1), Fact(balls = 2)),
+        Fact(balls = 1),
         Fact(strikes = 1),
         Fact(scoring_position = "no"))
     def pitching_28(self):
@@ -558,7 +560,7 @@ class PitchingStrategy(KnowledgeEngine):
         Fact(lead = "yes"),
         Fact(batter_chased = "yes"),
         Fact(pitching_accurately = "no"))
-    def pitching_40(self):
+    def pitching_41(self):
         self.declare(Fact(pitching = "Changeup_3"))
     
     @Rule(Fact(action = "pitching"), 
@@ -568,6 +570,13 @@ class PitchingStrategy(KnowledgeEngine):
         Fact(pitching_accurately = "no"))
     def pitching_32(self):
         self.declare(Fact(pitching = "Changeup_4"))
+    
+    @Rule(Fact(action = "pitching"), 
+        Fact(balls = 2),
+        Fact(strikes = 1),
+        Fact(scoring_position = "no"))
+    def pitching_42(self):
+        self.declare(Fact(pitching = "Changeup_5"))
 
     # -----------------------------------------------------------
     # Type 5 : Slider or Cutter
@@ -643,11 +652,37 @@ class PitchingStrategy(KnowledgeEngine):
     # Result
     # -----------------------------------------------------------
 
-    @Rule(Fact(action = "pitching"),Fact(pitching = MATCH.pitching))
-    def getPitching(self, pitching):
+    @Rule(Fact(action = "pitching"), 
+    AS.f << Fact(pitching = MATCH.pitching), 
+    Fact(strikes = MATCH.strikes),
+    Fact(balls = MATCH.balls))
+    def getPitching(self, pitching, strikes, balls, f):
         global pitching_result
         global pitch
+        global last_pitch
         pitch = pitching
+        if last_pitch != "":
+            if last_pitch == pitch:
+                mylist = ["4Seam_3"]
+                # Means last pitch only mada a small change. Usually was a ball.
+                # Random pick a recommandation under the same balls & strikes
+                if strikes == 1:
+                    mylist = ["4Seam_15", "2Seam_6", "Curv_4", "Changeup_4"]
+                elif strikes == 2:
+                    mylist = ["4Seam_8", "4Seam_9", "4Seam_10", "4Seam_11", "4Seam_13", "2Seam_3", "2Seam_4", "2Seam_5", "Curv_2", "Curv_3", "Changeup_3", "Cutter_3", "Slider_2", "Slider_3"]
+                elif balls == 3:
+                    mylist = ["2Seam_7", "4Seam_18", "4Seam_19"]
+                pitch = random.choice(mylist)
+                while pitch == last_pitch:
+                    print(last_pitch, pitch, " SAME!")
+                    pitch = random.choice(mylist)
+                self.modify(f, pitching = pitch)
+                self.halt()
+                last_pitch = pitch
+            else:
+                last_pitch = pitch    
+        else:
+            last_pitch = pitch
 
     def printPitching(self):
         global pitch
